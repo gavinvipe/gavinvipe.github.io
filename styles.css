@@ -16,23 +16,58 @@ body {
     color: white;
     padding: 10px;
     text-align: center;
+    position: relative;
 }
 
-.navbar ul {
+.nav-links {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    transition: max-height 0.3s ease;
 }
 
-.navbar li {
+.nav-links li {
     margin: 0 15px;
 }
 
-.navbar a {
+.nav-links a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Hamburger Menu Styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    background-color: white;
+    height: 3px;
+    margin: 5px;
+    width: 25px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
 }
 
 .header {
@@ -94,27 +129,4 @@ section {
     margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-    }
-
-    .header {
-        padding: 40px;
-    }
-
-    .service-item {
-        margin: 20px auto;
-    }
-
-    .portfolio-gallery {
-        flex-direction: column;
-    }
-
-    .portfolio-item {
-        width: 80%;
-        height: auto;
-    }
 }
